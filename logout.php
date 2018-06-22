@@ -1,17 +1,9 @@
 <?php
-
 session_start();
 
-
-if(isset($_COOKIE[session_name()])){
-    setcookie(session_name(),'',time()-86400,'/');
-}
-
-//clear all session variables
+//clearing session variables
 session_unset();
-
-
-//after clearing it is imp to destroy the session
+//destroying the session
 session_destroy();
 
 include_once('includes/header.php');
@@ -24,4 +16,5 @@ include_once('includes/header.php');
 </div>
 <?php
 include_once('includes/footer.php');
+
 ?>

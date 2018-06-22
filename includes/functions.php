@@ -12,10 +12,10 @@ function validatePassword($formData){
     return $formData;
 }
     
-function checkUsername($conn,$name,$id){
+function checkUsername($conn,$name,$id,$user_id){
     $count=0;
 
-    $query1="Select * from clients where id <> $id";
+    $query1="Select * from clients where user_id=$user_id AND id <> $id";
     $result1 = mysqli_query($conn, $query1);
     if(mysqli_num_rows($result1)>0){
         while($row1 = mysqli_fetch_assoc($result1)){
@@ -30,9 +30,9 @@ function checkUsername($conn,$name,$id){
     }
     return true;
 }
-function checkEmail($conn,$email,$id){
+function checkEmail($conn,$email,$id,$user_id){
     $count=0;
-    $query1="Select * from clients where id <> $id";
+    $query1="Select * from clients where user_id=$user_id AND id <> $id";
     $result1 = mysqli_query($conn, $query1);
     if(mysqli_num_rows($result1)>0){
         while($row1 = mysqli_fetch_assoc($result1)){
